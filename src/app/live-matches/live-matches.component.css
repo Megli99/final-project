@@ -1,0 +1,78 @@
+.container{
+    background-color: white;
+    width: 270px;
+    height: 120vh;
+    margin: 20px;
+}
+
+/* Live Matches */
+
+button{
+    border:none;
+    background-color: rgb(255, 255, 255);
+    margin-top: 17px;
+    font-weight: 900;
+}
+
+.previous{
+    margin-left: 45px;
+}
+
+.next{
+    margin-left: 5px;
+    margin-top: -7px;
+}
+
+.live-match{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.celtic{
+    width: 60px;
+}
+
+.score{
+    font-size: 25px;
+    margin: 10px;
+}
+
+.philadelphia{
+    width:60px;
+}
+
+/* Teams */
+
+.images-div >img{
+        width: 20px;
+        margin-right: 10px;
+}
+
+.see-profile{
+    margin-left: 45px;
+    text-decoration: none;
+    color: rgb(0, 217, 0);
+    font-size: 13px;
+}
+
+.images-div{
+    margin: 15px 0;
+}
+
+.team-h6{
+    margin-top: 40px;
+}
+
+/* Best Players */
+
+.best-players>h6{
+    margin: 40px 0;
+}
+
+.players-div>img{
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin: 10px;
+}
