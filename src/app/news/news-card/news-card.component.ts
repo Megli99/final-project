@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from '../news-interface';
 import { NewsService } from '../news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-card',
@@ -10,7 +11,12 @@ import { NewsService } from '../news.service';
 export class NewsCardComponent implements OnInit {
   news: News[] = [];
 
-  constructor(private newsService: NewsService) { }
+  ViewNewsDetail(news_id: any) {
+    let url: string = "/news-list/news-info/" + news_id
+    this.router.navigateByUrl(url);
+  }
+
+  constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadNews();
