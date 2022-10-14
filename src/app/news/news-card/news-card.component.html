@@ -1,44 +1,9 @@
-<div class="fluid-container">
-    <div class="container">
-        <div class="row d-flex justify-content-between" style="flex-wrap: wrap;">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="card shadow-lg" style="padding: 5px; margin: 25px;">
-                        <img src="../../../assets/NewsImages/news1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">NBA APP GM SURVEY</h5>
-                            <p class="card-text">The NBA's decision-makers respond to 50 different questions in the
-                                annual
-                                survey.</p>
-                            <a href="https://www.nba.com/news/2022-23-gm-survey" target="_blank"
-                                class="mt-auto btn btn-warning" style="margin:0px;width: 50%;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card shadow-lg" style="padding:5px;margin-top: 25px;">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">HEADLINES</h5>
-                            <hr>
-                            <a target="_blank" class="heading-link" *ngFor="let oneNews of news"
-                                href="{{oneNews.link}}">
-                                <p class="card-text m-0">{{oneNews.title}}</p>
-                                <hr style="margin: 10px;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card shadow-lg" style="width: 20rem; padding: 5px; margin: 20px;" *ngFor="let oneNews of news">
-                <img src="../../../assets/NewsImages/{{oneNews.image}}.jpg" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">{{oneNews.title}}</h5>
-                    <p class="card-text">{{oneNews.description}}</p>
-                    <a href="{{oneNews.link}}" target="_blank" class="mt-auto btn btn-warning"
-                        style="margin:0px;width: 50%;">Read
-                        More</a>
-                </div>
-            </div>
-        </div>
+<div class="card shadow-lg" style="width: 20rem; padding: 5px; margin: 20px;" *ngFor="let oneNews of news">
+    <img src="../../../assets/NewsImages/{{oneNews.image}}.jpg" class="card-img-top">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{oneNews.title}}</h5>
+        <p class="card-text">{{oneNews.description}}</p>
+        <a href="{{oneNews.link}}" target="_blank" class="mt-auto btn btn-warning" style="margin:0px;width: 50%;">Read
+            More</a>
     </div>
 </div>
