@@ -1,1 +1,51 @@
-<p>admin-news works!</p>
+<h1 class="p-5">Admin dashboard to add News.</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">Upload news image</label>
+            <input class="form-control" type="file" id="" [(ngModel)]="newsData.image" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">Enter news title</label>
+            <input type="email" class="form-control" id="" placeholder="News title" [(ngModel)]="newsData.title"
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">News description</label>
+            <textarea class="form-control" id="" rows="3" [(ngModel)]="newsData.description" required></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">Enter news link</label>
+            <input type="email" class="form-control" id="" placeholder="News link" [(ngModel)]="newsData.link" required>
+        </div>
+    </div>
+    <button class="btn btn-warning">Add News</button>
+</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h3 class="mb-3">News table</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Title</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let newsData of newsTableData">
+                    <tr>
+                        <th scope="row">{{newsData.id}}</th>
+                        <td>{{newsData.title}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

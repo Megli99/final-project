@@ -8,6 +8,9 @@ import { SdaHttpClient } from '../data-layer/sda-be-mock.service';
   providedIn: 'root'
 })
 export class NewsService {
+  getMatches() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private httpClient:SdaHttpClient) { }
 
