@@ -1,8 +1,12 @@
 <app-navbar></app-navbar>
-<div class="d-flex flex-row bd-highlight mb-3">
-    <div class="p-0 bd-highlight">
-        <app-sidebar></app-sidebar>
-    </div>
-    <div class="p-2 bd-highlight">    
-        <app-live-matches></app-live-matches>
+<div class="first">
+  <div class="app-sidebar-container">
+    <app-sidebar></app-sidebar>
   </div>
+  <div class="live-matcher-container d-md-none d-lg-block">
+    <app-live-matches></app-live-matches>
+  </div>
+  <div class="w-75">
+    <app-background></app-background>
+  </div>
+</div>

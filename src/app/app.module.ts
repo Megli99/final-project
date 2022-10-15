@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LiveMatchesComponent } from './live-matches/live-matches.component';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    LiveMatchesComponent
+    LiveMatchesComponent,
+    BackgroundComponent,
   ],
   imports: [
     BrowserModule,

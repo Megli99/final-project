@@ -1,7 +1,8 @@
 .side-bar{
     width: 49px;
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
+    height: 130vh;
+    background-color: rgba(253, 253, 253, 0.668);
+    margin-bottom: 0;
 }
 
 .basketball-icon{
