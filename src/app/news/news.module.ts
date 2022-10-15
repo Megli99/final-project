@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewsListComponent } from './news-list/news-list.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsInfoComponent } from './news-info/news-info.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { NewsInfoComponent } from './news-info/news-info.component';
     NewsInfoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     NewsListComponent,

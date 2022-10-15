@@ -5,11 +5,10 @@ import { NewsListComponent } from './news/news-list/news-list.component';
 
 const routes: Routes = [
   {
-    path: 'news-list', component: NewsListComponent, children: [
-      {
-        path: 'news-info/:id', component: NewsInfoComponent,
-      }
-    ]
+    path: 'news-list', component: NewsListComponent
+  },
+  {
+    path: 'news-list/news-info/:id', component: NewsInfoComponent,
   },
   { path: 'news-info', component: NewsInfoComponent },
   { path: '**', component: NewsListComponent }
