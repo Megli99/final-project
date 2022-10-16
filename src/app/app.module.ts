@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LiveMatchesComponent } from './live-matches/live-matches.component';
 import { BackgroundComponent } from './background/background.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BackgroundComponent } from './background/background.component';
     SidebarComponent,
     LiveMatchesComponent,
     BackgroundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
