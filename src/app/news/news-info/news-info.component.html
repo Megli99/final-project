@@ -1,11 +1,20 @@
 <div class="container" *ngFor="let oneNews of news">
     <div class="row">
-        <div class="col-md-9">
-            <img src="../../../assets/NewsImages/{{oneNews.image}}.jpg">
+        <div class="col-md-9 mt-3">
+            <img src="{{oneNews.image}}" class="img-fluid">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mt-3">
+            <h3>Other news</h3>
+            <hr>
+            <a href="{{oneNews.link}}">{{oneNews.title}}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 mt-3 mb-3">
+            <h1>
+                {{oneNews.title}}
+            </h1>
+            <p>{{oneNews.description}}</p>
         </div>
     </div>
 </div>
-
-<!-- //!NOTE -> add image as dropdown form images in asset folder -->

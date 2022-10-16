@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminTeamsComponent } from './admin-teams/admin-teams.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 import { AdminMatchesComponent } from './admin-matches/admin-matches.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

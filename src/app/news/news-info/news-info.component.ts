@@ -13,11 +13,13 @@ export class NewsInfoComponent implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-    this.loadNews();
+    this.getNewsData()
   }
 
-  private loadNews(): void {
-    this.newsService.getNews().subscribe((news: News[]) => this.news = news)
+  getNewsData() {
+    this.newsService.getNews().subscribe((results) => {
+      this.news = results;
+    })
   }
 
 }

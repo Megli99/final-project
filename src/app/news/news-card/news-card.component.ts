@@ -19,11 +19,11 @@ export class NewsCardComponent implements OnInit {
   constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadNews();
+    this.getNewsData()
+   }
+  getNewsData() {
+    this.newsService.getNews().subscribe((results) => {
+      this.news = results;
+    })
   }
-
-  private loadNews(): void {
-    this.newsService.getNews().subscribe((news: News[]) => this.news = news)
-  }
-
 }

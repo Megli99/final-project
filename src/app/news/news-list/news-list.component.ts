@@ -12,11 +12,10 @@ export class NewsListComponent implements OnInit {
 
   constructor(private newsService: NewsService) { }
 
-  ngOnInit(): void {
-    this.loadNews();
-  }
-
-  private loadNews(): void {
-    this.newsService.getNews().subscribe((news: News[]) => this.news = news)
+  ngOnInit(): void { }
+  getNewsData() {
+    this.newsService.getNews().subscribe((results) => {
+      this.news = results;
+    })
   }
 }
