@@ -2,8 +2,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="" class="form-label">Upload news image</label>
-            <input class="form-control" type="file" id="" [(ngModel)]="newsData.image" required>
+            <label for="" class="form-label">Choose image for the news</label>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="newsData.image">
+                <option selected>Open this select menu</option>
+                <option value="../../../assets/NewsImages/news1.jpg">Image One</option>
+                <option value="../../../assets/NewsImages/news2.jpg">Image Two</option>
+                <option value="../../../assets/NewsImages/news3.jpg">Image Three</option>
+                <option value="../../../assets/NewsImages/news4.jpg">Image Four</option>
+                <option value="../../../assets/NewsImages/news5.jpg">Image Five</option>
+                <option value="../../../assets/NewsImages/news6.jpg">Image Six</option>
+                <option value="../../../assets/NewsImages/news7.jpg">Image Seven</option>
+            </select>
         </div>
         <div class="col-md-6 mb-3">
             <label for="" class="form-label">Enter news title</label>
@@ -21,7 +30,7 @@
             <input type="email" class="form-control" id="" placeholder="News link" [(ngModel)]="newsData.link" required>
         </div>
     </div>
-    <button class="btn btn-warning">Add News</button>
+    <button class="btn btn-warning" (click)="submitNewsData()">Add News</button>
 </div>
 
 
@@ -36,12 +45,14 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Title</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let newsData of newsTableData">
                     <tr>
                         <th scope="row">{{newsData.id}}</th>
                         <td>{{newsData.title}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteNewsData(newsData.id??0)">X</button></td>
                     </tr>
                 </tbody>
             </table>

@@ -21,4 +21,8 @@ export class SdaHttpClient {
     getById<T>(url: string, id: number): Observable<T> {
         return this.dbService.getByID(url, id.toString());
     }
+
+    delete(url: string, id: number): Observable<boolean> {
+        return this.dbService.deleteByKey(url, id);
+    }
 }

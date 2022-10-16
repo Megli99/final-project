@@ -11,21 +11,37 @@ export class AdminNewsComponent implements OnInit {
   newsTableData: News[] = [];
 
   newsData: News = {
-    id: 0,
     image: '',
     title: '',
     description: '',
     link: ''
   }
 
+
   constructor(private newsService: NewsService) {
-    newsService.getNews().subscribe((results) => {
+    this.getNewsData()
+  }
+  getNewsData() {
+    this.newsService.getNews().subscribe((results) => {
       this.newsTableData = results;
-    });
+    })
   }
 
-    ngOnInit(): void {
+  submitNewsData() {
+    this.newsService.addNews(this.newsData).subscribe(() => {
+      this.getNewsData()
+    })
+  }
+
+  deleteNewsData(id: number) {
+    if (id !== 0) {
+      this.newsService.deleteNews(id).subscribe(() => this.getNewsData())
     }
-
   }
-  
+
+  ngOnInit(): void {
+  }
+
+
+}
+

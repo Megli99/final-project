@@ -8,13 +8,18 @@ import { SdaHttpClient } from '../data-layer/sda-be-mock.service';
   providedIn: 'root'
 })
 export class NewsService {
-  getMatches() {
-    throw new Error('Method not implemented.');
-  }
 
-  constructor(private httpClient:SdaHttpClient) { }
+  constructor(private httpClient: SdaHttpClient) { }
 
   getNews(): Observable<News[]> {
-    return this.httpClient.getAll<News>('News')
+    return this.httpClient.getAll<News>('News');
+  }
+
+  addNews(newsData: News): Observable<News> {
+    return this.httpClient.post<News>('News', newsData);
+  }
+
+  deleteNews(id: number): Observable<boolean> {
+    return this.httpClient.delete('News', id);
   }
 }
