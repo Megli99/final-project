@@ -1,4 +1,13 @@
 .first{
     display: flex;
 }
-.live-matcher-container{}
+
+@media screen and (max-width:744px) {
+    .first{
+      display: block;
+    }
+
+    .sidebar{
+      display: none;
+    }
+}

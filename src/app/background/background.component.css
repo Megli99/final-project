@@ -1,112 +1,32 @@
-.background{
-    width: 700px;
-    height: 350px;
-    margin-top: 28px;
-    position: absolute;
-}
 
-h5{
-    color: rgb(0, 0, 0);
-    margin-top: 230px;
-    margin-left: 200px;
-    z-index: 2;
-    font-weight: 900;
-    position: absolute;
-}
-
-.matches{
-    display: flex;
-    margin-left: 296px;
-}
-
-.weeklyMatches{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    z-index: 4;
-    margin: 270px 9px 0px 9px;
-   
-}
-
-.vs{
-    z-index: 4;
-    margin-top: 280px;
-    color: rgb(255, 255, 255);
-}
-
-.time{
-    z-index: 5;
-    color: rgb(240, 240, 240);
-    font-weight: 900;
-    position: absolute;
-    margin-top: 330px;
-    margin-left: -40px;
-}
-
-.location{
-    z-index: 5;
-    color: rgb(240, 240, 240);
-    font-weight: 900;
-    position: absolute;
-    margin-top: 330px;
-    margin-left: 80px;
-}
-
-h6{
-    color: black;
-    margin-top: 100px;
-}
-
-.teams{
-    width: 700px;
-    height: 50px;
-    margin: 30px 0;
-    background-color: white;
-}
-
-
-.team-image{
-    width: 30px;
-    margin: 6px 15px;
+.img-fluid{
+    padding: 9% 0px;
 }
 
 .team-names{
     margin-top: 8px;
 }
 
-strong{
-    margin: 8px 20px ;
+.team-image{
+    width: 30px;
+    margin: 6px 15px;
 }
 
 .info{
     display: flex;
 }
 
-.time-location{
+strong{
+    margin: 8px 20px ;
+}
+
+.teams{
+    margin: 30px 0;
+    background-color: white;
+}
+
+.time{
     margin-top: 8px;
-    margin-left: 17px;
+    margin-left: 5%;
 }
 
-.first-details{
-    text-decoration: none;
-    margin-left: 160px;
-    margin-top: 10px;
-}
-
-.second-details{
-    text-decoration: none;
-    margin-left: 120px;
-    margin-top: 10px;
-}
-
-.third-details{
-    text-decoration: none;
-    margin-left: 152px;
-    margin-top: 10px;
-}
-
-.fourth-details{
-    text-decoration: none;
-    margin-left: 80px;
-    margin-top: 10px;
-}

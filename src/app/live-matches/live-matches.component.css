@@ -5,23 +5,13 @@
     margin: 20px 20px;
 }
 
+.title{
+    margin: 10px;
+    padding-top: 20px;
+}
+
 /* Live Matches */
 
-button{
-    border:none;
-    background-color: rgb(255, 255, 255);
-    margin-top: 17px;
-    font-weight: 900;
-}
-
-.previous{
-    margin-left: 45px;
-}
-
-.next{
-    margin-left: 5px;
-    margin-top: -7px;
-}
 
 .live-match{
     display: flex;
@@ -115,3 +105,10 @@ button{
     margin-left: 30px;
 }
 
+@media screen and (max-width:744px) {
+
+    .container{
+        height: 100%;    
+        margin-left: 30%;
+    }
+}
