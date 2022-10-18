@@ -4,7 +4,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsInfoComponent } from './news-info/news-info.component';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     NewsListComponent,
