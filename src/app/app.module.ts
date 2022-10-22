@@ -19,7 +19,7 @@ import { TeamsModule } from './teams/teams.module';
     TeamsModule,
     MatchesModule,
     AdminModule,
-    SdaHttpClientModule
+    SdaHttpClientModule,
   ],
   providers: [SdaHttpClient],
   bootstrap: [AppComponent],

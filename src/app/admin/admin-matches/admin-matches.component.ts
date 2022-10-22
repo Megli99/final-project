@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Matches } from 'src/app/matches/matches-interface';
 import { MatchesService } from 'src/app/matches/matches.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Route } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { dbConfig } from 'src/app/data-layer/db.config';
+
 
 @Component({
   selector: 'app-admin-matches',
@@ -9,25 +13,22 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./admin-matches.component.css'],
 })
 export class AdminMatchesComponent implements OnInit {
-  formGroup!: FormGroup;
+ 
   matchTableData: Matches[] = [];
-  formData: any;
+  
+  
 
-  constructor(private matchesService: MatchesService) {
+  constructor(private matchesService: MatchesService, 
+    private _route : ActivatedRoute,
+    private _router: Router) {
     this.getMatchData();
-    this.initForm();
+    
+    
   }
 
-  initForm() {
-    this.formGroup = new FormGroup({
-      homeTeam: new FormControl(null, Validators.required),
-      awayTeam: new FormControl(null, Validators.required),
-      goalsHome: new FormControl(null, Validators.required),
-      goalsAway: new FormControl(null, Validators.required),
-      possessionHome: new FormControl(null, Validators.required),
-      possessionAway: new FormControl(null, Validators.required),
-    });
-  }
+  createMatch(){
+    this._router.navigate(['/match-admin-form/0']);
+ }
 
   getMatchData() {
     this.matchesService.getMatches().subscribe((results) => {
@@ -35,13 +36,6 @@ export class AdminMatchesComponent implements OnInit {
     });
   }
 
-  submitMatchData() {
-    this.formGroup.markAllAsTouched();
-    let formData = this.formGroup.value;
-    this.matchesService.addMatches(formData).subscribe(() => {
-      this.getMatchData();
-    });
-  }
 
   deleteMatchData(id: number) {
     if (id !== 0) {
@@ -50,6 +44,11 @@ export class AdminMatchesComponent implements OnInit {
         .subscribe(() => this.getMatchData());
     }
   }
+  editMatches(id: Number) {
+    this._router.navigate([`/match-admin-form/${id}`]);
+    
+  }
+ 
 
   ngOnInit(): void {}
 }

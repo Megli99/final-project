@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminMatchesFormComponent } from './admin/admin-matches/admin-matches-form/admin-matches-form.component';
 import { AdminMatchesComponent } from './admin/admin-matches/admin-matches.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { MatchesComponent } from './matches/matches/matches.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'match-admin',
     component: AdminMatchesComponent,
+  },
+  {
+    path: 'match-admin-form/:id',
+    component: AdminMatchesFormComponent,
   },
   {
     path: '**',
