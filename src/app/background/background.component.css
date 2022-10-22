@@ -1,0 +1,31 @@
+
+.img-fluid{
+    padding: 9% 0px;
+}
+
+.team-names{
+    margin-top: 8px;
+}
+
+.team-image{
+    width: 30px;
+    margin: 6px 15px;
+}
+
+.info{
+    display: flex;
+}
+
+strong{
+    margin: 8px 20px ;
+}
+
+.teams{
+    margin: 30px 0;
+    background-color: white;
+}
+
+.time{
+    margin-top: 8px;
+    margin-left: 5%;
+}

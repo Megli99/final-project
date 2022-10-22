@@ -1,0 +1,21 @@
+.side-bar{
+    width: 49px;
+    height: 100%;
+    background-color: rgba(253, 253, 253, 0.668);
+    margin-bottom: 0;
+}
+
+.basketball-icon{
+    width: 22px;
+    margin-left: 13px;
+    cursor: pointer;
+}
+
+.green-line{
+    height: 34px;
+    position: absolute;
+    width: 4px;
+    background-color: green;
+}
+
+
