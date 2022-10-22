@@ -4,26 +4,26 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SdaHttpClient {
-    constructor(private dbService: NgxIndexedDBService) { }
+  constructor(private dbService: NgxIndexedDBService) { }
 
-    post<T>(url: string, data: T): Observable<T> {
-        return this.dbService.add(url, data);
-    }
+  post<T>(url: string, data: T): Observable<T> {
+    return this.dbService.add(url, data);
+  }
 
-    put<T>(url: string, id: number, data: T) {
-        (data as any)['id'] = id;
-        return this.dbService.update(url, data);
-    }
+  put<T>(url: string, id: number, data: T) {
+    (data as any)['id'] = id;
+    return this.dbService.update(url, data);
+  }
 
-    getAll<T>(url: string): Observable<Array<T>> {
-        return this.dbService.getAll(url);
-    }
+  getAll<T>(url: string): Observable<Array<T>> {
+    return this.dbService.getAll(url);
+  }
 
-    getById<T>(url: string, id: number): Observable<T> {
-        return this.dbService.getByID(url, id);
-    }
+  getById<T>(url: string, id: number): Observable<T> {
+    return this.dbService.getByID(url, id);
+  }
 
-    delete(url: string, id: number): Observable<boolean> {
-        return this.dbService.deleteByKey(url, id);
-    }
+  delete(url: string, id: number): Observable<boolean> {
+    return this.dbService.deleteByKey(url, id);
+  }
 }
