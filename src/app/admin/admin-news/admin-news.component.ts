@@ -36,10 +36,12 @@ export class AdminNewsComponent implements OnInit {
   submitNewsData() {
     this.formGroup.markAllAsTouched();
     let formData = this.formGroup.value
-    this.newsService.addNews(formData).subscribe(() => {
-      this.getNewsData(); 
-      this.formGroup.reset();
-    })
+    if (this.formGroup.valid) {
+      this.newsService.addNews(formData).subscribe(() => {
+        this.getNewsData();
+        this.formGroup.reset();
+      })
+    }
   }
 
   deleteNewsData(id: number) {

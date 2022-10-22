@@ -14,7 +14,11 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="image" class="form-label">Choose image for the news</label>
-                <select class="form-select" aria-label="Default select example" formControlName="image">
+                <select class="form-select" aria-label="Default select example" formControlName="image" [ngClass]="{
+          'is-invalid':
+            formGroup.get('image')?.status == 'INVALID' &&
+            formGroup.get('image')?.touched
+        }">
                     <option selected>Open this select menu</option>
                     <option value="../../../assets/NewsImages/news1.jpg">Image One</option>
                     <option value="../../../assets/NewsImages/news2.jpg">Image Two</option>
@@ -25,22 +29,48 @@
                     <option value="../../../assets/NewsImages/news7.jpg">Image Seven</option>
                 </select>
             </div>
+            <div class="invalid-feedback" *ngIf="formGroup.get('image')?.errors">
+                Required
+            </div>
             <div class="col-md-6 mb-3">
                 <label for="title" class="form-label">Enter news title</label>
-                <input type="text" class="form-control" id="" placeholder="News title" formControlName="title">
+                <input type="text" class="form-control" id="" placeholder="News title" formControlName="title"
+                    [ngClass]="{
+                    'is-invalid':
+                      formGroup.get('title')?.status == 'INVALID' &&
+                      formGroup.get('title')?.touched
+                  }">
+            </div>
+            <div class="invalid-feedback" *ngIf="formGroup.get('title')?.errors">
+                Required
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="description" class="form-label">News description</label>
-                <textarea class="form-control" id="" rows="3" formControlName="description" required></textarea>
+                <textarea class="form-control" id="" rows="3" formControlName="description" required [ngClass]="{
+                    'is-invalid':
+                      formGroup.get('description')?.status == 'INVALID' &&
+                      formGroup.get('description')?.touched
+                  }"></textarea>
+            </div>
+            <div class="invalid-feedback" *ngIf="formGroup.get('description')?.errors">
+                Required
             </div>
             <div class="col-md-6 mb-3">
                 <label for="link" class="form-label">Enter news link</label>
-                <input type="text" class="form-control" id="" placeholder="News link" formControlName="link" required>
+                <input type="text" class="form-control" id="" placeholder="News link" formControlName="link" required
+                    [ngClass]="{
+                    'is-invalid':
+                      formGroup.get('link')?.status == 'INVALID' &&
+                      formGroup.get('link')?.touched
+                  }">
+            </div>
+            <div class="invalid-feedback" *ngIf="formGroup.get('link')?.errors">
+                Required
             </div>
         </div>
-        <button class="btn btn-warning" type="submit" [disabled]="!formGroup.valid" (click)="submitNewsData()">Add
+        <button class="btn btn-warning" type="submit" (click)="submitNewsData()">Add
             News</button>
         <button class="btn btn-warning" style="margin-left: 15px;" (click)="formGroup.reset()">Reset</button>
     </div>
