@@ -81,5 +81,5 @@ export class AdminMatchesFormComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }
