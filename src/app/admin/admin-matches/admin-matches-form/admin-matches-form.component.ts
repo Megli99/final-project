@@ -58,20 +58,18 @@ export class AdminMatchesFormComponent implements OnInit {
   }
 
   submitMatchData() {
-    debugger;
     if (this.id == 0) {
       this.formGroup.markAllAsTouched();
       let formData = this.formGroup.value;
       this.matchesService.addMatches(formData).subscribe(() => {
-        this._router.navigate(['/match-admin'])
+        this._router.navigate(['/match-admin']);
       });
     } else if (this.id !== 0) {
-
       this.formGroup.markAllAsTouched();
       let formData = this.formGroup.value;
       this.matchesService.editMatches(formData, this.id).subscribe(() => {
         this.getMatchData();
-        this._router.navigate(['/match-admin'])
+        this._router.navigate(['/match-admin']);
       });
     }
   }
