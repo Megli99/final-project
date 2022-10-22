@@ -10,19 +10,16 @@ import { NewsModule } from './news/news.module';
 import { TeamsModule } from './teams/teams.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NewsModule,
     TeamsModule,
     MatchesModule,
-    AdminModule,
-    SdaHttpClientModule
+    SdaHttpClientModule,
   ],
   providers: [SdaHttpClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

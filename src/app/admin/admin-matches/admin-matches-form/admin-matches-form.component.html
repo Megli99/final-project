@@ -1,0 +1,76 @@
+<h1 class="p-5">Admin dashboard to add Matches.</h1>
+<form [formGroup]="formGroup">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Home Team</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Home Team"
+          formControlName="homeTeam"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Away Team</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Away Team"
+          formControlName="awayTeam"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Goals Home</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Goals Home"
+          formControlName="goalsHome"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Goals Away</label>
+        <input
+          type="email"
+          class="form-control"
+          id=""
+          placeholder="Goals Away"
+          formControlName="goalsAway"
+          required
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Possession Home</label>
+        <input
+          type="email"
+          class="form-control"
+          id=""
+          placeholder="Possession Home"
+          formControlName="possessionHome"
+          required
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Possession Away</label>
+        <input
+          type="email"
+          class="form-control"
+          id=""
+          placeholder="Possession Away"
+          formControlName="possessionAway"
+          required
+        />
+      </div>
+    </div>
+    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id==0"> Add Matches
+       </button>
+       <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id!==0"> Edit Matches
+      </button>
+  </div>
+</form>

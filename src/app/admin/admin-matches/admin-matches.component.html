@@ -1,1 +1,59 @@
-<p>admin-matches works!</p>
+<h1 class="p-5">Admin dashboard to add Matches.</h1>
+<div class="container mt-5">
+  <button class="btn btn-warning" (click)="createMatch()">
+    create matches
+  </button>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-0"></div>
+    <div class="col-md-12">
+      <h3 class="mb-8">News table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Home Team</th>
+            <th scope="col">Away Team</th>
+            <th scope="col">Goals Home</th>
+            <th scope="col">Goals Away</th>
+            <th scope="col">Possession Home</th>
+            <th scope="col">Possession Away</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let matchData of matchTableData">
+          <tr>
+            <th scope="row">{{ matchData.id }}</th>
+            <td>{{ matchData.homeTeam }}</td>
+            <td>{{ matchData.awayTeam }}</td>
+            <td>{{ matchData.goalsHome }}</td>
+            <td>{{ matchData.goalsAway }}</td>
+            <td>{{ matchData.possessionHome }} %</td>
+            <td>{{ matchData.possessionAway }} %</td>
+
+            <td>
+              <button
+                class="btn btn-danger"
+                (click)="deleteMatchData(matchData.id)"
+              >
+                X
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-primary"
+                (click)="editMatches(matchData.id)"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
