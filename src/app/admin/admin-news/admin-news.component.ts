@@ -38,7 +38,7 @@ export class AdminNewsComponent implements OnInit {
     let formData = this.formGroup.value
     this.newsService.addNews(formData).subscribe(() => {
       this.getNewsData(); 
-      // this.formGroup.reset();
+      this.formGroup.reset();
     })
   }
 

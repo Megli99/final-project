@@ -7,8 +7,10 @@
             </h1>
             <p>{{oneNews.description}}</p>
         </div>
-        <div class="col-md-3 mt-3" >
+        <div class="col-md-3 mt-3">
             <h3>Other news</h3>
+            <a href="/news-list"><button type="submit" class="btn btn-outline-primary mb-3" data-mdb-ripple-color="dark">News
+                    page</button></a>
             <ng-container *ngFor="let allNews of news">
                 <hr>
                 <a href="{{allNews.link}}">{{allNews.title}}</a>
