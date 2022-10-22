@@ -12,9 +12,6 @@ const routes: Routes = [
     path: 'news-list/news-info/:id', component: NewsInfoComponent,
   },
   { 
-    path: 'news-info', component: NewsInfoComponent 
-  },
-  { 
     path: 'news-admin', component: AdminNewsComponent 
   },
   { 

@@ -11,17 +11,25 @@
                                 annual
                                 survey.</p>
                             <a href="https://www.nba.com/news/2022-23-gm-survey" target="_blank"
-                                class="mt-auto btn btn-warning" style="margin:0px;width: 25%; " >Read More</a>
+                                class="mt-auto btn btn-warning" style="margin:0px;width: 25%; ">Read More</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card shadow-lg" style="padding:5px;margin-top: 25px;">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">HEADLINES</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="card-title">HEADLINE</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="/news-admin"><button type="submit" class="btn btn-outline-warning"
+                                            data-mdb-ripple-color="dark">Add news</button></a>
+                                </div>
+                            </div>
                             <hr>
                             <a target="_blank" class="heading-link" *ngFor="let oneNews of news"
-                                href="{{oneNews.link}}">
+                                href="news-list/news-info/{{oneNews.id}}">
                                 <p class="card-text m-0">{{oneNews.title}}</p>
                                 <hr style="margin: 10px;">
                             </a>

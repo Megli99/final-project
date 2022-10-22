@@ -11,7 +11,8 @@ export class SdaHttpClient {
     }
 
     put<T>(url: string, id: number, data: T) {
-        return this.dbService.update(url, data, id);
+        (data as any)['id'] = id;
+        return this.dbService.update(url, data);
     }
 
     getAll<T>(url: string): Observable<Array<T>> {
@@ -19,7 +20,7 @@ export class SdaHttpClient {
     }
 
     getById<T>(url: string, id: number): Observable<T> {
-        return this.dbService.getByID(url, id.toString());
+        return this.dbService.getByID(url, id);
     }
 
     delete(url: string, id: number): Observable<boolean> {

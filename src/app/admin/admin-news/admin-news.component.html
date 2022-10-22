@@ -1,9 +1,19 @@
-<h1 class="p-5">Admin dashboard to add News.</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 mb-3">
+            <h1>Admin dashboard to add News.</h1>
+        </div>
+        <div class="col-md-2 mb-3">
+            <a href="/news-list"><button type="submit" class="btn btn-outline-primary" data-mdb-ripple-color="dark">News
+                    page</button></a>
+        </div>
+    </div>
+</div>
 <form [formGroup]="formGroup">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="" class="form-label">Choose image for the news</label>
+                <label for="image" class="form-label">Choose image for the news</label>
                 <select class="form-select" aria-label="Default select example" formControlName="image">
                     <option selected>Open this select menu</option>
                     <option value="../../../assets/NewsImages/news1.jpg">Image One</option>
@@ -16,21 +26,23 @@
                 </select>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="" class="form-label">Enter news title</label>
-                <input type="email" class="form-control" id="" placeholder="News title" formControlName="title">
+                <label for="title" class="form-label">Enter news title</label>
+                <input type="text" class="form-control" id="" placeholder="News title" formControlName="title">
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="" class="form-label">News description</label>
+                <label for="description" class="form-label">News description</label>
                 <textarea class="form-control" id="" rows="3" formControlName="description" required></textarea>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="" class="form-label">Enter news link</label>
-                <input type="email" class="form-control" id="" placeholder="News link" formControlName="link" required>
+                <label for="link" class="form-label">Enter news link</label>
+                <input type="text" class="form-control" id="" placeholder="News link" formControlName="link" required>
             </div>
         </div>
-        <button class="btn btn-warning" (click)="submitNewsData()">Add News</button>
+        <button class="btn btn-warning" type="submit" [disabled]="!formGroup.valid" (click)="submitNewsData()">Add
+            News</button>
+        <button class="btn btn-warning" style="margin-left: 15px;" (click)="formGroup.reset()">Reset</button>
     </div>
 </form>
 
@@ -51,7 +63,8 @@
                     <tr>
                         <th scope="row">{{newsData.id}}</th>
                         <td>{{newsData.title}}</td>
-                        <td><button class="btn btn-danger" (click)="deleteNewsData(newsData.id??0)">X</button></td>
+                        <td><button class="btn btn-danger" (click)="deleteNewsData(newsData.id??0)">X</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

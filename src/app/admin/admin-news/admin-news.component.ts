@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/news/news-interface';
 import { NewsService } from 'src/app/news/news.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-news',
@@ -12,15 +13,6 @@ export class AdminNewsComponent implements OnInit {
   formGroup!: FormGroup;
   newsTableData: News[] = [];
   formData: any;
-
-  // newsData: News = {
-  //   image: '',
-  //   title: '',
-  //   description: '',
-  //   link: ''
-  // }
-
-
   constructor(private newsService: NewsService) {
     this.getNewsData();
     this.initForm();
@@ -45,7 +37,8 @@ export class AdminNewsComponent implements OnInit {
     this.formGroup.markAllAsTouched();
     let formData = this.formGroup.value
     this.newsService.addNews(formData).subscribe(() => {
-      this.getNewsData()
+      this.getNewsData(); 
+      // this.formGroup.reset();
     })
   }
 
