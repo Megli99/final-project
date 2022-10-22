@@ -20,15 +20,14 @@ export class AdminMatchesFormComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router
   ) {
-    this.id = Number(this._route.snapshot.paramMap.get('id'));
-
+    this.id = +this._route.snapshot.params['id'];
     this.initForm();
     this.getMatchData();
   }
 
   initForm() {
     this.formGroup = new FormGroup({
-      id: new FormControl({ value: null, disabled: true }),
+      id: new FormControl({ value: null, disabled: true }, Validators.required),
       homeTeam: new FormControl(null, Validators.required),
       awayTeam: new FormControl(null, Validators.required),
       goalsHome: new FormControl(null, Validators.required),
@@ -39,7 +38,6 @@ export class AdminMatchesFormComponent implements OnInit {
 
     if (this.id !== 0) {
       this.matchesService.getmatchbyid(this.id).subscribe((result) => {
-        console.log(result);
         this.formGroup.setValue(result);
       });
     }
@@ -58,19 +56,20 @@ export class AdminMatchesFormComponent implements OnInit {
   }
 
   submitMatchData() {
-    if (this.id == 0) {
-      this.formGroup.markAllAsTouched();
-      let formData = this.formGroup.value;
-      this.matchesService.addMatches(formData).subscribe(() => {
-        this._router.navigate(['/match-admin']);
-      });
-    } else if (this.id !== 0) {
-      this.formGroup.markAllAsTouched();
-      let formData = this.formGroup.value;
-      this.matchesService.editMatches(formData, this.id).subscribe(() => {
-        this.getMatchData();
-        this._router.navigate(['/match-admin']);
-      });
+    this.formGroup.markAllAsTouched();
+    if (this.formGroup.valid) {
+      if (this.id == 0) {
+        let formData = this.formGroup.value;
+        this.matchesService.addMatches(formData).subscribe(() => {
+          this._router.navigate(['/match-admin']);
+        });
+      } else if (this.id !== 0) {
+        let formData = this.formGroup.value;
+        this.matchesService.editMatches(formData, this.id).subscribe(() => {
+          this.getMatchData();
+          this._router.navigate(['/match-admin']);
+        });
+      }
     }
   }
 
