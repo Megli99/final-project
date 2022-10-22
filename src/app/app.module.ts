@@ -18,10 +18,9 @@ import { TeamsModule } from './teams/teams.module';
     NewsModule,
     TeamsModule,
     MatchesModule,
-    AdminModule,
     SdaHttpClientModule,
   ],
   providers: [SdaHttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

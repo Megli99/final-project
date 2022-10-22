@@ -10,7 +10,7 @@ import { NewsListComponent } from './news/news-list/news-list.component';
 
 const routes: Routes = [
   {
-    path: '**', pathMatch: 'full', redirectTo: 'home'
+    path: '', pathMatch: 'full', redirectTo: 'home'
   },
   {
     path: 'news-list',
@@ -21,19 +21,11 @@ const routes: Routes = [
     component: NewsInfoComponent,
   },
   {
-    path: 'news-admin', component: AdminNewsComponent
-  },
-  {
     path: 'home', loadChildren: () => import('./client/client.module').then((module) => module.ClientModule)
   },
   {
-    path: 'match-admin',
-    component: AdminMatchesComponent,
-  },
-  {
-    path: 'match-admin-form/:id',
-    component: AdminMatchesFormComponent,
-  },
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then((module) => module.AdminModule)
+  }
 
 ];
 

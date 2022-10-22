@@ -13,22 +13,22 @@ import { dbConfig } from 'src/app/data-layer/db.config';
   styleUrls: ['./admin-matches.component.css'],
 })
 export class AdminMatchesComponent implements OnInit {
- 
-  matchTableData: Matches[] = [];
-  
-  
 
-  constructor(private matchesService: MatchesService, 
-    private _route : ActivatedRoute,
+  matchTableData: Matches[] = [];
+
+
+
+  constructor(private matchesService: MatchesService,
+    private _route: ActivatedRoute,
     private _router: Router) {
     this.getMatchData();
-    
-    
+
+
   }
 
-  createMatch(){
-    this._router.navigate(['/match-admin-form/0']);
- }
+  createMatch() {
+    this._router.navigate(['/admin/match-admin-form/0']);
+  }
 
   getMatchData() {
     this.matchesService.getMatches().subscribe((results) => {
@@ -45,10 +45,10 @@ export class AdminMatchesComponent implements OnInit {
     }
   }
   editMatches(id: Number) {
-    this._router.navigate([`/match-admin-form/${id}`]);
-    
-  }
- 
+    this._router.navigate([`/admin/match-admin-form/${id}`]);
 
-  ngOnInit(): void {}
+  }
+
+
+  ngOnInit(): void { }
 }

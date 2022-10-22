@@ -61,13 +61,13 @@ export class AdminMatchesFormComponent implements OnInit {
       if (this.id == 0) {
         let formData = this.formGroup.value;
         this.matchesService.addMatches(formData).subscribe(() => {
-          this._router.navigate(['/match-admin']);
+          this._router.navigate(['/admin/match-admin']);
         });
       } else if (this.id !== 0) {
         let formData = this.formGroup.value;
         this.matchesService.editMatches(formData, this.id).subscribe(() => {
           this.getMatchData();
-          this._router.navigate(['/match-admin']);
+          this._router.navigate(['/admin/match-admin']);
         });
       }
     }
@@ -81,5 +81,5 @@ export class AdminMatchesFormComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
