@@ -1,1 +1,54 @@
-<p>admin-teams works!</p>
+<h1 class="p-5">Admin dashboard to add Teams.</h1>
+<div class="container mt-5">
+  <button class="btn btn-warning" (click)="createTeam()">
+    Create Team
+  </button>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-0"></div>
+    <div class="col-md-12">
+      <h3 class="mb-8">Teams table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Average Match Points</th>
+           
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let teamData of teamTableData">
+          <tr>
+            <th scope="row">{{ teamData.id }}</th>
+            <td>{{ teamData.name }}</td>
+            <td>{{ teamData.category }}</td>
+            <td>{{ teamData.avgPointsMatch }}</td>
+            
+            <td>
+              <button
+                class="btn btn-danger"
+                (click)="deleteTeamData(teamData.id)"
+              >
+                X
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-primary"
+                (click)="editTeam(teamData.id)"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

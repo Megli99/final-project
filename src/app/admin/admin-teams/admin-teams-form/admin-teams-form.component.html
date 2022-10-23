@@ -1,0 +1,45 @@
+<h1 class="p-5">Admin dashboard to add Teams.</h1>
+<form [formGroup]="formGroup">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Name</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Name"
+          formControlName="name"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Category</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Category"
+          formControlName="category"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Average Match Points</label>
+        <input
+          type="form-control"
+          class="form-control"
+          id=""
+          placeholder="Average Match Points"
+          formControlName="avgPointsMatch"
+        />
+      </div>
+    </div>
+    <button class="btn btn-warning" (click)="submitTeamData()" *ngIf="id == 0">
+      Add Team
+    </button>
+    <button class="btn btn-warning" (click)="submitTeamData()" *ngIf="id !== 0">
+      Edit Team
+    </button>
+  </div>
+</form>

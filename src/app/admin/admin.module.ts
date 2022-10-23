@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AdminMatchesFormComponent } from './admin-matches/admin-matches-form/admin-matches-form.component';
 import { LayoutModule } from '../layout/layout.module';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { AdminTeamsFormComponent } from './admin-teams/admin-teams-form/admin-teams-form.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
     AdminNewsComponent,
     AdminMatchesComponent,
     AdminMatchesFormComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    AdminTeamsFormComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,12 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
           },
           {
             path: 'news-admin', component: AdminNewsComponent
+          },
+          {
+            path: 'team-admin', component: AdminTeamsComponent
+          },
+          {
+            path: 'team-admin-form/:id', component: AdminTeamsFormComponent
           },
         ]
       }
