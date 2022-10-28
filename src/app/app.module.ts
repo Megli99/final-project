@@ -9,6 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { MatchesModule } from './matches/matches.module';
 import { NewsModule } from './news/news.module';
 import { TeamsModule } from './teams/teams.module';
+import {NgConfirmModule} from 'ng-confirm-box';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { TeamsModule } from './teams/teams.module';
     MatchesModule,
     LayoutModule,
     SdaHttpClientModule,
+    NgConfirmModule
   ],
   providers: [SdaHttpClient],
   bootstrap: [AppComponent],

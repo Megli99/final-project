@@ -3,6 +3,7 @@ import { News } from 'src/app/news/news-interface';
 import { NewsService } from 'src/app/news/news.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { NgConfirmService } from 'ng-confirm-box';
 
 @Component({
   selector: 'app-admin-news',
@@ -13,7 +14,7 @@ export class AdminNewsComponent implements OnInit {
   formGroup!: FormGroup;
   newsTableData: News[] = [];
   formData: any;
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: NewsService, private confirmService: NgConfirmService) {
     this.getNewsData();
     this.initForm();
   }
@@ -44,10 +45,14 @@ export class AdminNewsComponent implements OnInit {
     }
   }
 
+ 
+
   deleteNewsData(id: number) {
-    if (id !== 0) {
-      this.newsService.deleteNews(id).subscribe(() => this.getNewsData())
-    }
+    this.confirmService.showConfirm("Are you sure you want to delete?",
+      () => {
+          this.newsService.deleteNews(id).subscribe(() => this.getNewsData())
+      },
+      () => {})
   }
 
   ngOnInit(): void {

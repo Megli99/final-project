@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { dbConfig } from 'src/app/data-layer/db.config';
+import { NgConfirmService } from 'ng-confirm-box';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AdminMatchesComponent implements OnInit {
 
 
   constructor(private matchesService: MatchesService,
+    private confirmService: NgConfirmService,
     private _route: ActivatedRoute,
     private _router: Router) {
     this.getMatchData();
@@ -38,12 +40,15 @@ export class AdminMatchesComponent implements OnInit {
 
 
   deleteMatchData(id: number) {
-    if (id !== 0) {
-      this.matchesService
+    this.confirmService.showConfirm("Are you sure you want to delete?",
+      () => {
+        this.matchesService
         .deleteMatches(id)
         .subscribe(() => this.getMatchData());
-    }
+      },
+      () => {})
   }
+
   editMatches(id: Number) {
     this._router.navigate([`/admin/match-admin-form/${id}`]);
 
