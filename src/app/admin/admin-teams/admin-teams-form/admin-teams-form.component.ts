@@ -70,6 +70,7 @@ export class AdminTeamsFormComponent implements OnInit {
         this.teamsService.editTeams(formData, this.id).subscribe(() => {
           this.getTeamData();
           this._router.navigate(['/admin/team-admin']);
+          this.formGroup.reset();
         });
       }
     }

@@ -4,32 +4,74 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Name</label>
-        <input type="form-control" class="form-control" id="" placeholder="Name" formControlName="name" />
+        <input type="form-control" class="form-control" placeholder="Name" formControlName="name" [ngClass]="{
+          'is-invalid':
+            formGroup.get('name')?.status == 'INVALID' &&
+            formGroup.get('name')?.touched
+        }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('name')?.errors">
+          Required
+        </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Category</label>
-        <input type="form-control" class="form-control" id="" placeholder="Category" formControlName="category" />
+        <input type="form-control" class="form-control" placeholder="Category" formControlName="category" [ngClass]="{
+          'is-invalid':
+            formGroup.get('category')?.status == 'INVALID' &&
+            formGroup.get('category')?.touched
+        }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('category')?.errors">
+          Required
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Average Match Points</label>
-        <input type="form-control" class="form-control" id="" placeholder="Average Match Points"
-          formControlName="avgPointsMatch" />
+        <input type="number" class="form-control" min="0" placeholder="Average Match Points"
+          formControlName="avgPointsMatch" [ngClass]="{
+            'is-invalid':
+              formGroup.get('avgPointsMatch')?.status == 'INVALID' &&
+              formGroup.get('avgPointsMatch')?.touched
+          }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('avgPointsMatch')?.errors">
+          Required
+        </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Loses</label>
-        <input type="form-control" class="form-control" id="" placeholder="Lost Matches" formControlName="loses" />
+        <input type="number" class="form-control" min="0" placeholder="Lost Matches" formControlName="loses" [ngClass]="{
+          'is-invalid':
+            formGroup.get('loses')?.status == 'INVALID' &&
+            formGroup.get('loses')?.touched
+        }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('loses')?.errors">
+          Required
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Wins</label>
-        <input type="form-control" class="form-control" id="" placeholder="Won Matches" formControlName="wins" />
+        <input type="number" class="form-control" min="0" placeholder="Won Matches" formControlName="wins" [ngClass]="{
+          'is-invalid':
+            formGroup.get('wins')?.status == 'INVALID' &&
+            formGroup.get('wins')?.touched
+        }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('wins')?.errors">
+          Required
+        </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Draws</label>
-        <input type="form-control" class="form-control" id="" placeholder="Drawn Matches" formControlName="draws" />
+        <input type="number" class="form-control" min="0" placeholder="Drawn Matches" formControlName="draws" [ngClass]="{
+          'is-invalid':
+            formGroup.get('draws')?.status == 'INVALID' &&
+            formGroup.get('draws')?.touched
+        }" />
+        <div class="invalid-feedback" *ngIf="formGroup.get('draws')?.errors">
+          Required
+        </div>
       </div>
     </div>
     <div class="row">
@@ -40,6 +82,9 @@
     formGroup.get('teamLogo')?.status == 'INVALID' &&
     formGroup.get('teamLogo')?.touched
 }">
+          <div class="invalid-feedback" *ngIf="formGroup.get('teamLogo')?.errors">
+            Required
+          </div>
           <option value="../../../assets/images/Washington.png">Washington</option>
           <option value="../../../assets/images/SacramentoKings.png">Sacramento Kings</option>
           <option value="../../../assets/images/newOrleans.png">New Orleans</option>
@@ -56,5 +101,6 @@
     <button class="btn btn-warning" (click)="submitTeamData()" *ngIf="id !== 0">
       Edit Team
     </button>
+    <button class="btn btn-warning" style="margin-left: 15px;" (click)="formGroup.reset()">Reset</button>
   </div>
 </form>
