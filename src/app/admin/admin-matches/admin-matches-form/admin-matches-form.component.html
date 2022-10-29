@@ -1,65 +1,133 @@
 <h1 class="p-5">Admin dashboard to add Matches.</h1>
+
 <form [formGroup]="formGroup">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label for="" class="form-label">Home Team</label>
-        <input type="form-control" class="form-control" placeholder="Home Team" formControlName="homeTeam" [ngClass]="{
-          'is-invalid':
-            formGroup.get('homeTeam')?.status == 'INVALID' &&
-            formGroup.get('homeTeam')?.touched
-        }" />
+        <label for="text" class="form-label">Home Team</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="homeTeam"
+        >
+          <option selected>Select Home Team</option>
+          <option
+            *ngFor="let Team of teamTableData"
+            [disabled]="formGroup.get('awayTeam')?.value == Team.name"
+          >
+            {{ Team.name }}
+          </option>
+        </select>
       </div>
+
       <div class="col-md-6 mb-3">
-        <label for="" class="form-label">Away Team</label>
-        <input type="form-control" class="form-control" placeholder="Away Team" formControlName="awayTeam" [ngClass]="{
-          'is-invalid':
-            formGroup.get('awayTeam')?.status == 'INVALID' &&
-            formGroup.get('awayTeam')?.touched
-        }" />
+        <label for="text" class="form-label">Away Team</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="awayTeam"
+        >
+          <option selected>Select Away Team</option>
+          <option
+            *ngFor="let Team of teamTableData"
+            [disabled]="formGroup.get('homeTeam')?.value == Team.name"
+          >
+            {{ Team.name }}
+          </option>
+        </select>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Goals Home</label>
-        <input type="number" class="form-control" min="0" placeholder="Goals Home" formControlName="goalsHome"
+        <input
+          type="number"
+          min="0"
+          class="form-control"
+          id=""
+          placeholder="Goals Home"
+          formControlName="goalsHome"
           [ngClass]="{
-          'is-invalid':
-            formGroup.get('goalsHome')?.status == 'INVALID' &&
-            formGroup.get('goalsHome')?.touched
-        }" />
+            'is-invalid':
+              formGroup.get('goalsHome')?.status == 'INVALID' &&
+              formGroup.get('goalsHome')?.touched
+          }"
+        />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Goals Away</label>
-        <input type="number" class="form-control" min="0" placeholder="Goals Away" formControlName="goalsAway" required
+        <input
+          type="number"
+          min="0"
+          class="form-control"
+          id=""
+          placeholder="Goals Away"
+          formControlName="goalsAway"
           [ngClass]="{
-          'is-invalid':
-            formGroup.get('goalsAway')?.status == 'INVALID' &&
-            formGroup.get('goalsAway')?.touched
-        }" />
+            'is-invalid':
+              formGroup.get('goalsAway')?.status == 'INVALID' &&
+              formGroup.get('goalsAway')?.touched
+          }"
+        />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Possession Home</label>
-        <input type="number" class="form-control" min="0" placeholder="Possession Home" formControlName="possessionHome"
-          required [ngClass]="{
+        <input
+          type="number"
+          min="0"
+          max="100"
+          class="form-control"
+          id=""
+          placeholder="Possession Home"
+          formControlName="possessionHome"
+          [ngClass]="{
             'is-invalid':
               formGroup.get('possessionHome')?.status == 'INVALID' &&
               formGroup.get('possessionHome')?.touched
-          }" />
+          }"
+        />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Possession Away</label>
-        <input type="number" class="form-control" min="0" placeholder="Possession Away" formControlName="possessionAway"
-          required [ngClass]="{
+        <input
+          type="number"
+          min="0"
+          max="100"
+          class="form-control"
+          id=""
+          placeholder="Possession Away"
+          formControlName="possessionAway"
+          [ngClass]="{
             'is-invalid':
-              formGroup.get('possessionAway')?.status == 'INVALID' &&
+              formGroup.errors &&
+              formGroup.errors['possessionInvalid'] &&
               formGroup.get('possessionAway')?.touched
-          }" />
+          }"
+        />
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            formGroup.get('possessionAway')?.touched &&
+            formGroup.errors &&
+            formGroup.errors['possessionInvalid']
+          "
+        >
+          Possession sum must be 100%
+        </div>
       </div>
     </div>
-    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id==0"> Add Match
+    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id == 0">
+      Add Match
     </button>
-    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id!==0"> Edit Match
+    <button
+      class="btn btn-warning"
+      (click)="submitMatchData()"
+      *ngIf="id !== 0"
+    >
+      Edit Match
     </button>
   </div>
 </form>
+
+<br /><br />
