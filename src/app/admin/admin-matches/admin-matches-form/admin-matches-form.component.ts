@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Matches } from 'src/app/matches/matches-interface';
 import { MatchesService } from 'src/app/matches/matches.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Teams } from 'src/app/teams/teams-interface';
@@ -22,7 +28,8 @@ export class AdminMatchesFormComponent implements OnInit {
     private teamsService: TeamsService,
     private matchesService: MatchesService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private fb: FormBuilder
   ) {
     this.id = +this._route.snapshot.params['id'];
     this.initForm();
@@ -31,15 +38,21 @@ export class AdminMatchesFormComponent implements OnInit {
   }
 
   initForm() {
-    this.formGroup = new FormGroup({
-      id: new FormControl({ value: null, disabled: true }, Validators.required),
-      homeTeam: new FormControl(null, Validators.required),
-      awayTeam: new FormControl(null, Validators.required),
-      goalsHome: new FormControl(null, Validators.required),
-      goalsAway: new FormControl(null, Validators.required),
-      possessionHome: new FormControl(null, Validators.required),
-      possessionAway: new FormControl(null, Validators.required),
-    });
+    this.formGroup = this.fb.group(
+      {
+        id: new FormControl(
+          { value: null, disabled: true },
+          Validators.required
+        ),
+        homeTeam: new FormControl(null, Validators.required),
+        awayTeam: new FormControl(null, Validators.required),
+        goalsHome: new FormControl(null, Validators.required),
+        goalsAway: new FormControl(null, Validators.required),
+        possessionHome: new FormControl(null, Validators.required),
+        possessionAway: new FormControl(null, Validators.required),
+      },
+      { validator: this.possessionConfirming }
+    );
 
     if (this.id !== 0) {
       this.matchesService.getmatchbyid(this.id).subscribe((result) => {
@@ -47,7 +60,18 @@ export class AdminMatchesFormComponent implements OnInit {
       });
     }
   }
-
+  possessionConfirming(c: AbstractControl) {
+    const possessionHomeControl = c.get('possessionHome');
+    const possessionAway = c.get('possessionAway');
+    if (
+      possessionHomeControl &&
+      possessionAway &&
+      possessionHomeControl.value + possessionAway.value !== 100
+    ) {
+      return { possessionInvalid: true };
+    }
+    return ;
+  }
   getTeamData() {
     this.teamsService.getTeams().subscribe((results) => {
       this.teamTableData = results;
@@ -66,7 +90,7 @@ export class AdminMatchesFormComponent implements OnInit {
       .subscribe(() => this.editMatches());
   }
 
-  submitMatchData() {
+  submitMatchData() {debugger
     this.formGroup.markAllAsTouched();
     if (this.formGroup.valid) {
       if (this.id == 0) {
@@ -82,6 +106,7 @@ export class AdminMatchesFormComponent implements OnInit {
         });
       }
     }
+    
   }
 
   deleteMatchData(id: number) {
