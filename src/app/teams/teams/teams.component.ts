@@ -9,11 +9,23 @@ import { TeamsService } from '../teams.service';
 })
 export class TeamsComponent implements OnInit {
   teams: Teams[] = [];
+  order: any;
 
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
     this.loadTeams();
+  }
+
+  sortData() {
+    if (this.order) {
+      let newarr = this.teams.sort((a, b) => a.avgPointsMatch - b.avgPointsMatch);
+      this.teams = newarr;
+    } else {
+      let newarr = this.teams.sort((a, b) => b.avgPointsMatch - a.avgPointsMatch);
+      this.teams = newarr;
+    }
+    this.order = !this.order;
   }
 
   private loadTeams(): void {

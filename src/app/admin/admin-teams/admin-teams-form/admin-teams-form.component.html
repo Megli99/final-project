@@ -4,35 +4,50 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Name</label>
-        <input
-          type="form-control"
-          class="form-control"
-          id=""
-          placeholder="Name"
-          formControlName="name"
-        />
+        <input type="form-control" class="form-control" id="" placeholder="Name" formControlName="name" />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Category</label>
-        <input
-          type="form-control"
-          class="form-control"
-          id=""
-          placeholder="Category"
-          formControlName="category"
-        />
+        <input type="form-control" class="form-control" id="" placeholder="Category" formControlName="category" />
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Average Match Points</label>
-        <input
-          type="form-control"
-          class="form-control"
-          id=""
-          placeholder="Average Match Points"
-          formControlName="avgPointsMatch"
-        />
+        <input type="form-control" class="form-control" id="" placeholder="Average Match Points"
+          formControlName="avgPointsMatch" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Loses</label>
+        <input type="form-control" class="form-control" id="" placeholder="Lost Matches" formControlName="loses" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Wins</label>
+        <input type="form-control" class="form-control" id="" placeholder="Won Matches" formControlName="wins" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="" class="form-label">Draws</label>
+        <input type="form-control" class="form-control" id="" placeholder="Drawn Matches" formControlName="draws" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="teamLogo" class="form-label">Choose team logo</label>
+        <select class="form-select" aria-label="Default select example" formControlName="teamLogo" [ngClass]="{
+  'is-invalid':
+    formGroup.get('teamLogo')?.status == 'INVALID' &&
+    formGroup.get('teamLogo')?.touched
+}">
+          <option value="../../../assets/images/Washington.png">Washington</option>
+          <option value="../../../assets/images/SacramentoKings.png">Sacramento Kings</option>
+          <option value="../../../assets/images/newOrleans.png">New Orleans</option>
+          <option value="../../../assets/images/indiana.png">Indiana</option>
+          <option value="../../../assets/images/Chicago_Bulls.png">Chicago Bulls</option>
+          <option value="../../../assets/images/Atlanta_Hawks_logo.svg.png">Atlanta Hawks</option>
+          <option value="../../../assets/images/download (1).png">Boston</option>
+        </select>
       </div>
     </div>
     <button class="btn btn-warning" (click)="submitTeamData()" *ngIf="id == 0">

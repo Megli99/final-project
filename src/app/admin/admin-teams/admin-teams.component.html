@@ -3,6 +3,8 @@
   <button class="btn btn-warning" (click)="createTeam()">
     Create Team
   </button>
+    <a href="/teams-list"><button type="submit" class="btn btn-outline-primary m-3" data-mdb-ripple-color="dark">Teams
+            page</button></a>
 </div>
 
 <div class="container mt-5">
@@ -17,7 +19,10 @@
             <th scope="col">Name</th>
             <th scope="col">Category</th>
             <th scope="col">Average Match Points</th>
-           
+            <th scope="col">Loses</th>
+            <th scope="col">Wins</th>
+            <th scope="col">Draws</th>
+
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -28,7 +33,10 @@
             <td>{{ teamData.name }}</td>
             <td>{{ teamData.category }}</td>
             <td>{{ teamData.avgPointsMatch }}</td>
-            
+            <td>{{ teamData.loses }}</td>
+            <td>{{ teamData.wins}}</td>
+            <td>{{ teamData.draws}}</td>
+
             <td>
               <button
                 class="btn btn-danger"

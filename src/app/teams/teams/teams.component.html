@@ -1,1 +1,41 @@
-<p>teams works!</p>
+<app-navbar></app-navbar>
+
+<section class="content-info">
+    <h1 class="text-center mb-5">Livescore table</h1>
+    <div class="container paddings-mini">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table-striped table-responsive table-hover result-point">
+                    <thead class="point-table-head">
+                        <tr>
+                            <th class="text-left">No</th>
+                            <th class="text-left">TEAM</th>
+                            <th class="text-center">Category</th>
+                            <th class="text-center">W</th>
+                            <th class="text-center">D</th>
+                            <th class="text-center">L</th>
+                            <th class="text-center" (click)="sortData()" style="cursor: pointer;"> <i
+                                    class="fa-solid fa-sort"></i> AVG-PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" *ngFor="let team of teams">
+                        <tr>
+                            <td class="text-left number">1 <i class="fa fa-caret-up" aria-hidden="true"></i></td>
+                            <td class="text-left">
+                                <img src={{team.teamLogo}}><span>{{team.name}}</span>
+                            </td>
+                            <td>{{team.category}}</td>
+                            <td>{{team.wins}}</td>
+                            <td>{{team.draws}}</td>
+                            <td>{{team.loses}}</td>
+                            <td>{{team.avgPointsMatch}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="admin/team-admin"><button type="submit" class="btn btn-outline-primary m-3"
+                data-mdb-ripple-color="dark">Add Team</button></a>
+    </div>
+</section>
+<app-footer></app-footer>

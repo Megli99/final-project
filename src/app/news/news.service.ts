@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { News } from './news-interface';
-import { NEWS } from './news-data';
 import { Observable, of } from 'rxjs';
 import { SdaHttpClient } from '../data-layer/sda-be-mock.service';
 

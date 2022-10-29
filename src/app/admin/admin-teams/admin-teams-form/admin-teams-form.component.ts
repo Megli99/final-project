@@ -32,7 +32,10 @@ export class AdminTeamsFormComponent implements OnInit {
       name: new FormControl(null, Validators.required),
       category: new FormControl(null, Validators.required),
       avgPointsMatch: new FormControl(null, Validators.required),
-      
+      loses: new FormControl(null, Validators.required),
+      wins: new FormControl(null, Validators.required),
+      draws: new FormControl(null, Validators.required),
+      teamLogo: new FormControl(null, Validators.required)
     });
 
     if (this.id !== 0) {
