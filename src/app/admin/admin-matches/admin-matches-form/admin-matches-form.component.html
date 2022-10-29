@@ -2,7 +2,7 @@
 <form [formGroup]="formGroup">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <!-- <div class="col-md-6 mb-3">
         <label for="" class="form-label">Home Team</label>
         <input
           type="form-control"
@@ -11,8 +11,21 @@
           placeholder="Home Team"
           formControlName="homeTeam"
         />
-      </div>
+      </div> -->
+
       <div class="col-md-6 mb-3">
+        <label for="text" class="form-label">Home Team</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="homeTeam"
+        >
+          <option selected>Select Home Team</option>
+          <option *ngFor="let Team of teamTableData">{{ Team.name }}</option>
+        </select>
+      </div>
+
+      <!-- <div class="col-md-6 mb-3">
         <label for="" class="form-label">Away Team</label>
         <input
           type="form-control"
@@ -21,56 +34,97 @@
           placeholder="Away Team"
           formControlName="awayTeam"
         />
+      </div> -->
+      <div class="col-md-6 mb-3">
+        <label for="text" class="form-label">Away Team</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="awayTeam"
+        >
+          <option selected>Select Away Team</option>
+          <option *ngFor="let Team of teamTableData">{{ Team.name }}</option>
+        </select>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Goals Home</label>
         <input
-          type="form-control"
+          type="number"
+          min="0"
           class="form-control"
           id=""
           placeholder="Goals Home"
           formControlName="goalsHome"
+          [ngClass]="{
+            'is-invalid':
+              formGroup.get('goalsHome')?.status == 'INVALID' &&
+              formGroup.get('goalsHome')?.touched
+          }"
         />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Goals Away</label>
         <input
-          type="email"
+          type="number"
+          min="0"
           class="form-control"
           id=""
           placeholder="Goals Away"
           formControlName="goalsAway"
-          required
+          [ngClass]="{
+            'is-invalid':
+              formGroup.get('goalsAway')?.status == 'INVALID' &&
+              formGroup.get('goalsAway')?.touched
+          }"
         />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Possession Home</label>
         <input
-          type="email"
+          type="number"
+          min="0"
+          max="100"
           class="form-control"
           id=""
           placeholder="Possession Home"
           formControlName="possessionHome"
-          required
+          [ngClass]="{
+            'is-invalid':
+              formGroup.get('possessionHome')?.status == 'INVALID' &&
+              formGroup.get('possessionHome')?.touched
+          }"
         />
       </div>
       <div class="col-md-6 mb-3">
         <label for="" class="form-label">Possession Away</label>
         <input
-          type="email"
+          type="number"
+          min="0"
+          max="100"
           class="form-control"
           id=""
           placeholder="Possession Away"
           formControlName="possessionAway"
-          required
-        />
+          
+          [ngClass]="{
+            'is-invalid':
+              formGroup.get('possessionAway')?.status == 'INVALID' &&
+              formGroup.get('possessionAway')?.touched 
+          }"
+        />  
       </div>
     </div>
-    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id==0"> Add Match
-       </button>
-       <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id!==0"> Edit Match
-      </button>
+    <button class="btn btn-warning" (click)="submitMatchData()" *ngIf="id == 0">
+      Add Match
+    </button>
+    <button
+      class="btn btn-warning"
+      (click)="submitMatchData()"
+      *ngIf="id !== 0"
+    >
+      Edit Match
+    </button>
   </div>
-</form>
+</form> <br><br>

@@ -4,6 +4,8 @@ import { MatchesService } from 'src/app/matches/matches.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Teams } from 'src/app/teams/teams-interface';
+import { TeamsService } from 'src/app/teams/teams.service';
 @Component({
   selector: 'app-admin-matches-form',
   templateUrl: './admin-matches-form.component.html',
@@ -14,8 +16,10 @@ export class AdminMatchesFormComponent implements OnInit {
   matchTableData: Matches[] = [];
   formData: any;
   id: number;
+  teamTableData: Teams[] = [];
 
   constructor(
+    private teamsService: TeamsService,
     private matchesService: MatchesService,
     private _route: ActivatedRoute,
     private _router: Router
@@ -23,6 +27,7 @@ export class AdminMatchesFormComponent implements OnInit {
     this.id = +this._route.snapshot.params['id'];
     this.initForm();
     this.getMatchData();
+    this.getTeamData();
   }
 
   initForm() {
@@ -41,6 +46,12 @@ export class AdminMatchesFormComponent implements OnInit {
         this.formGroup.setValue(result);
       });
     }
+  }
+
+  getTeamData() {
+    this.teamsService.getTeams().subscribe((results) => {
+      this.teamTableData = results;
+    });
   }
 
   getMatchData() {
