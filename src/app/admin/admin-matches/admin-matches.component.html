@@ -11,7 +11,6 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Id</th>
             <th scope="col">Home Team</th>
             <th scope="col">Away Team</th>
             <th scope="col">Goals Home</th>
@@ -23,9 +22,8 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody *ngFor="let matchData of matchTableData">
-          <tr>
-            <th scope="row">{{ matchData.id }}</th>
+        <tbody>
+          <tr *ngFor="let matchData of matchTableData">
             <td>{{ matchData.homeTeam }}</td>
             <td>{{ matchData.awayTeam }}</td>
             <td>{{ matchData.goalsHome }}</td>
@@ -35,19 +33,18 @@
             <td>{{ matchData.matchTime }}</td>
 
             <td>
-              <button
-                class="btn btn-danger"
-                (click)="deleteMatchData(matchData.id)"
-              >
-                X
+              <button title="Delete" class="btn btn-danger" (click)="deleteMatchData(matchData.id)">
+                <span>
+                  <i class="fas fa-trash"></i>
+                </span>
               </button>
             </td>
             <td>
-              <button
-                class="btn btn-primary"
-                (click)="editMatches(matchData.id)"
-              >
-                Edit
+              <button title="Edit" class="btn btn-primary" (click)="editMatches(matchData.id)">
+                <span>
+                  <i class="fas fa-pen"></i>
+                </span>
+
               </button>
             </td>
           </tr>

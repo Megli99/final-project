@@ -19,7 +19,6 @@ import { TeamsService } from 'src/app/teams/teams.service';
 })
 export class AdminMatchesFormComponent implements OnInit {
   formGroup!: FormGroup;
-  matchTableData: Matches[] = [];
   formData: any;
   id: number;
   teamTableData: Teams[] = [];
@@ -33,9 +32,13 @@ export class AdminMatchesFormComponent implements OnInit {
   ) {
     this.id = +this._route.snapshot.params['id'];
     this.initForm();
-    this.getMatchData();
+    if (this.id != 0) {
+      this.getMatchData();
+    }
     this.getTeamData();
   }
+
+  ngOnInit(): void { }
 
   initForm() {
     this.formGroup = this.fb.group(
@@ -54,13 +57,8 @@ export class AdminMatchesFormComponent implements OnInit {
       },
       { validator: this.possessionConfirming }
     );
-
-    if (this.id !== 0) {
-      this.matchesService.getmatchbyid(this.id).subscribe((result) => {
-        this.formGroup.setValue(result);
-      });
-    }
   }
+
   possessionConfirming(c: AbstractControl) {
     const possessionHomeControl = c.get('possessionHome');
     const possessionAway = c.get('possessionAway');
@@ -73,6 +71,7 @@ export class AdminMatchesFormComponent implements OnInit {
     }
     return;
   }
+
   getTeamData() {
     this.teamsService.getTeams().subscribe((results) => {
       this.teamTableData = results;
@@ -80,18 +79,20 @@ export class AdminMatchesFormComponent implements OnInit {
   }
 
   getMatchData() {
-    this.matchesService.getMatches().subscribe((results) => {
-      this.matchTableData = results;
+    this.matchesService.getmatchbyid(this.id).subscribe((response) => {
+      this.formGroup.setValue(response)
     });
   }
 
   editMatches() {
-    this.matchesService
-      .editMatches(this.formData, this.id)
-      .subscribe(() => this.editMatches());
+    this.matchesService.editMatches(this.formData, this.id)
+      .subscribe(() => {
+        this._router.navigate(['/admin/match-admin'])
+      });
   }
 
-  submitMatchData() {debugger
+  submitMatchData() {
+    debugger
     this.formGroup.markAllAsTouched();
     if (this.formGroup.valid) {
       if (this.id == 0) {
@@ -107,16 +108,8 @@ export class AdminMatchesFormComponent implements OnInit {
         });
       }
     }
-    
+
   }
 
-  deleteMatchData(id: number) {
-    if (id !== 0) {
-      this.matchesService
-        .deleteMatches(id)
-        .subscribe(() => this.getMatchData());
-    }
-  }
 
-  ngOnInit(): void { }
 }

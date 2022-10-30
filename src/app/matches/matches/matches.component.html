@@ -22,7 +22,7 @@
           <img [src]="getLogo(match.awayTeam)" style="width: 50px" />
         </div>
         <div class="col-sm-2">
-          <span>{{ match.matchTime }}</span>
+          <span>{{ match.matchTime | date: 'dd/MM/yyyy hh:mm' }}</span>
         </div>
       </div>
     </div>
