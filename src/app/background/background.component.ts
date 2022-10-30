@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Matches } from '../matches/matches-interface';
+import { MatchesService } from '../matches/matches.service';
 
 @Component({
   selector: 'app-background',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackgroundComponent implements OnInit {
 
-  constructor() { }
+  matches: Matches[] = [];
+
+  constructor(private matchesService: MatchesService) { }
 
   ngOnInit(): void {
+    this.loadMatches()
+  }
+
+  private loadMatches(): void {
+    this.matchesService.getMatches().subscribe((matches: Matches[]) => this.matches = matches)
   }
 
 }

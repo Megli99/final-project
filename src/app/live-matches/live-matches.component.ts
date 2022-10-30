@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Teams } from '../teams/teams-interface';
+import { TeamsService } from '../teams/teams.service';
 
 @Component({
   selector: 'app-live-matches',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LiveMatchesComponent implements OnInit {
 
-  constructor() { }
+  teams: Teams[] = []
+
+  constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
+    this.loadTeams()
+  }
+
+  private loadTeams(): void {
+    this.teamsService.getTeams().subscribe((teams: Teams[]) => this.teams = teams)
   }
 
 }

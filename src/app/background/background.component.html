@@ -1,96 +1,20 @@
-
 <img src="../../assets/images/background.jpg" class="img-fluid" alt="background">
 
 <h6>Latest Matches</h6>
 
- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col">
-      <div class="teams">
-        <div class="info">
-          <img
-            class="team-image"
-            src="../../assets/images/Washington.png"
-            alt="team"
-          />
-          <p class="team-names">Washington</p>
-          <strong>VS</strong>
-          <p class="team-names">Indiana</p>
-          <img
-            class="team-image"
-            src="../../assets/images/indiana.png"
-            alt="team"
-          />
-          <p class="time">5 : 00 London</p>
-        </div>
-      </div>
-
-
-    
-    <div class="row">
-    <div class="col">
-      <div class="teams">
-        <div class="info">
-          <img
-            class="team-image"
-            src="../../assets/images/newOrleans.png"
-            alt=""
-          />
-          <p class="team-names">New Orleans</p>
-          <strong>VS</strong>
-          <p class="team-names">Philadelphia</p>
-          <img
-            class="team-image"
-            src="../../assets/images/Philadelphia_76ers_logo.svg.png"
-            alt="team"
-          />
-          <p class="time">5 : 00 London</p>
-        </div>
-      </div>
-    </div>
-    </div>
-
-
-
-    <div class="row">
-    <div class="col">
-      <div class="teams">
-        <div class="info">
-          <img class="team-image" src="../../assets/images/Pistons.png" alt="" />
-          <p class="team-names">Pistons</p>
-          <strong>VS</strong>
-          <p class="team-names">Chicago Bulls</p>
-          <img
-            class="team-image"
-            src="../../assets/images/Chicago_Bulls.png"
-            alt="team"
-          />
-          <p class="time">5 : 00 London</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-    <div class="row">
-    <div class="col">
-      <div class="teams">
-        <div class="info">
-          <img
-            class="team-image"
-            src="../../assets/images/Milwaukee_Bucks_logo.svg.png"
-            alt=""
-          />
-          <p class="team-names">Milwaukee Bucks</p>
-          <strong>VS</strong>
-          <p class="team-names">Atlanta Hawks</p>
-          <img
-            class="team-image"
-            src="../../assets/images/Atlanta_Hawks_logo.svg.png"
-            alt="team"
-          />
-          <p class="time">5 : 00 London</p>
+      <div *ngFor="let match of matches">
+        <div class="card mb-3 text-center">
+          <div class="card-body row d-flex justify-content-evenly">
+            <div class="col-sm-1"><img src="../../../assets/images/Chicago_Bulls.png" style="width: 50px;"></div>
+            <div class="col-sm-2"><span>{{match.homeTeam}}</span></div>
+            <div class="col-sm-2"><span>{{match.goalsHome}} - <span>{{match.goalsAway}}</span></span></div>
+            <div class="col-sm-2"><span>{{match.awayTeam}}</span></div>
+            <div class="col-sm-1"><img src="../../../assets/images/Pistons.png" style="width: 50px;"></div>
+            <div class="col-sm-2"><span>{{match.matchTime}}</span></div>
+          </div>
         </div>
       </div>
     </div>
