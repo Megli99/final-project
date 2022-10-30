@@ -10,9 +10,10 @@ import { MatchesModule } from './matches/matches.module';
 import { NewsModule } from './news/news.module';
 import { TeamsModule } from './teams/teams.module';
 import {NgConfirmModule} from 'ng-confirm-box';
+import { SpageComponent } from './spage/spage.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,SpageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

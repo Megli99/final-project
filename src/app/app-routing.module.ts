@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatchesComponent } from './matches/matches/matches.component';
 import { NewsInfoComponent } from './news/news-info/news-info.component';
 import { NewsListComponent } from './news/news-list/news-list.component';
+import { SpageComponent } from './spage/spage.component';
 import { TeamsComponent } from './teams/teams/teams.component';
 
 
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'matches-list',
     component: MatchesComponent,
   },
+  {
+    path: 'statistics',
+    component: SpageComponent,
+  }, 
   {
     path: 'home', loadChildren: () => import('./client/client.module').then((module) => module.ClientModule)
   },
