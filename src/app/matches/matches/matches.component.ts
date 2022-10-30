@@ -17,6 +17,10 @@ export class MatchesComponent implements OnInit {
     this.loadMatches();
     this.loadTeams()
   }
+  getLogo(teamname: string) {
+    return this.teams.find(x => x.name == teamname)?.teamLogo
+
+  }
 
   private loadMatches(): void {
     this.matchesService.getMatches().subscribe((matches: Matches[]) => this.matches = matches)

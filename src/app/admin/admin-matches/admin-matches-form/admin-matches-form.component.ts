@@ -91,8 +91,7 @@ export class AdminMatchesFormComponent implements OnInit {
       .subscribe(() => this.editMatches());
   }
 
-  submitMatchData() {
-    debugger
+  submitMatchData() {debugger
     this.formGroup.markAllAsTouched();
     if (this.formGroup.valid) {
       if (this.id == 0) {
@@ -108,7 +107,7 @@ export class AdminMatchesFormComponent implements OnInit {
         });
       }
     }
-
+    
   }
 
   deleteMatchData(id: number) {
