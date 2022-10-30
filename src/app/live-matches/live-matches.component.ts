@@ -21,4 +21,8 @@ export class LiveMatchesComponent implements OnInit {
     this.teamsService.getTeams().subscribe((teams: Teams[]) => this.teams = teams)
   }
 
+  get firstFiveTeams() {
+    return this.teams.slice(this.teams.length - 5, this.teams.length)
+  }
+
 }

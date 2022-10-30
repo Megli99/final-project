@@ -9,7 +9,7 @@
         <img src="../../assets/images/Philadelphia_76ers_logo.svg.png" class="philadelphia" alt="Philadelphia">
     </div>
     <h6 class="team-h6">Teams</h6>
-    <div class="teams m-3" *ngFor="let team of teams">
+    <div class="teams m-3" *ngFor="let team of firstFiveTeams">
         <img src={{team.teamLogo}} style="width: 50px;"><span class="m-3">{{team.name}} <a href="/teams-list"><i
                     class="fa-sharp fa-solid fa-circle-arrow-right"></i></a></span>
     </div>

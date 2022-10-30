@@ -22,6 +22,10 @@ export class MatchesComponent implements OnInit {
 
   }
 
+  get firstFiveMatches(){
+    return this.matches.slice(this.matches.length - 5,this.matches.length)
+  }
+
   private loadMatches(): void {
     this.matchesService.getMatches().subscribe((matches: Matches[]) => this.matches = matches)
   }
