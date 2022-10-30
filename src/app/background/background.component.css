@@ -1,17 +1,5 @@
-
-.img-fluid{
-    padding: 9% 0px;
-}
-
-.team-names{
-    margin-top: 8px;
-}
-
-.team-image{
-    width: 30px;
-    margin: 6px 15px;
-}
-
-strong{
-    margin: 8px 20px ;
+.cover-container{
+    margin-top: 10px;
+    margin-left: 30px;
+    padding-left: 30px;
 }

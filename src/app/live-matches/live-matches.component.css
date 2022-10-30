@@ -2,7 +2,6 @@
     background-color: white;
     width: 270px;
     height: 90%;
-    margin: 20px 20px;
 }
 
 .title{
@@ -30,79 +29,6 @@
 
 .philadelphia{
     width:60px;
-}
-
-/* Teams */
-
-.images-div >img{
-        width: 20px;
-        margin-right: 10px;
-}
-
-.see-profile{
-    margin-left: 45px;
-    text-decoration: none;
-    color: rgb(0, 217, 0);
-    font-size: 13px;
-}
-
-.images-div{
-    margin: 15px 0;
-}
-
-.team-h6{
-    margin-top: 40px;
-}
-
-
-.scarmetoIcon{
-    color: orange;
-    margin-left: 60px;
-}
-
-.pistonsIcon{
-    color: red;
-    margin-left: 136px;
-}
-
-.newOrleansIcon{
-    color: blue;
-    margin-left: 96px;
-}
-
-.indianaIcon{
-    color: orange;
-    margin-left: 134px;
-}
-/* Best Players */
-
-.best-players>h6{
-    margin: 40px 0;
-}
-
-.players-div>img{
-    width: 50px;
-    margin-right: 10px;
-    border-radius: 20px;
-    margin: 10px;
-}
-
-.giannis{
-    font-size: 14px;
-    color: rgb(124, 206, 0);
-    margin-left: 80px;
-}
-
-.kevin{
-    font-size: 14px;
-    color: rgb(124, 206, 0);
-    margin-left: 40px;
-}
-
-.curry{
-    font-size: 14px;
-    color: rgb(124, 206, 0);
-    margin-left: 30px;
 }
 
 @media screen and (max-width:744px) {

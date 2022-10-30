@@ -1,4 +1,4 @@
-<div class="container ro2">
+<div class="container">
     <div class="matches">
         <h6 class="title">Live Matches</h6>
     </div>
@@ -10,6 +10,7 @@
     </div>
     <h6 class="team-h6">Teams</h6>
     <div class="teams m-3" *ngFor="let team of teams">
-        <img src={{team.teamLogo}} style="width: 50px;"><span class="m-3">{{team.name}}</span>
+        <img src={{team.teamLogo}} style="width: 50px;"><span class="m-3">{{team.name}} <a href="/teams-list"><i
+                    class="fa-sharp fa-solid fa-circle-arrow-right"></i></a></span>
     </div>
 </div>

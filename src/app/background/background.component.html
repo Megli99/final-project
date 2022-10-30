@@ -1,19 +1,20 @@
-<img src="../../assets/images/background.jpg" class="img-fluid" alt="background">
+<div class="cover-container">
+  <img src="../../assets/images/backgroundAll.jpg" class="img-fluid">
 
-<h6>Latest Matches</h6>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let match of matches">
-        <div class="card mb-3 text-center">
-          <div class="card-body row d-flex justify-content-evenly">
-            <div class="col-sm-1"><img src="../../../assets/images/Chicago_Bulls.png" style="width: 50px;"></div>
-            <div class="col-sm-2"><span>{{match.homeTeam}}</span></div>
-            <div class="col-sm-2"><span>{{match.goalsHome}} - <span>{{match.goalsAway}}</span></span></div>
-            <div class="col-sm-2"><span>{{match.awayTeam}}</span></div>
-            <div class="col-sm-1"><img src="../../../assets/images/Pistons.png" style="width: 50px;"></div>
-            <div class="col-sm-2"><span>{{match.matchTime}}</span></div>
+  <h2 class="p-2">Latest Matches</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div *ngFor="let match of matches">
+          <div class="card mb-3 text-center">
+            <div class="card-body row d-flex justify-content-evenly">
+              <div class="col-sm-1"><img src="../../../assets/images/Chicago_Bulls.png" style="width: 50px;"></div>
+              <div class="col-sm-2"><span>{{match.homeTeam}}</span></div>
+              <div class="col-sm-2"><span>{{match.goalsHome}} - <span>{{match.goalsAway}}</span></span></div>
+              <div class="col-sm-2"><span>{{match.awayTeam}}</span></div>
+              <div class="col-sm-1"><img src="../../../assets/images/Pistons.png" style="width: 50px;"></div>
+              <div class="col-sm-2"><span>{{match.matchTime}}</span></div>
+            </div>
           </div>
         </div>
       </div>
