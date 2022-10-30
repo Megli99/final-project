@@ -50,6 +50,7 @@ export class AdminMatchesFormComponent implements OnInit {
         goalsAway: new FormControl(null, Validators.required),
         possessionHome: new FormControl(null, Validators.required),
         possessionAway: new FormControl(null, Validators.required),
+        matchTime: new FormControl(null, Validators.required)
       },
       { validator: this.possessionConfirming }
     );
@@ -90,8 +91,7 @@ export class AdminMatchesFormComponent implements OnInit {
       .subscribe(() => this.editMatches());
   }
 
-  submitMatchData() {
-    debugger;
+  submitMatchData() {debugger
     this.formGroup.markAllAsTouched();
     if (this.formGroup.valid) {
       if (this.id == 0) {
@@ -107,6 +107,7 @@ export class AdminMatchesFormComponent implements OnInit {
         });
       }
     }
+    
   }
 
   deleteMatchData(id: number) {
@@ -117,5 +118,5 @@ export class AdminMatchesFormComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
