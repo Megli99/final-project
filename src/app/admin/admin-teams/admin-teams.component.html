@@ -3,8 +3,8 @@
   <button class="btn btn-warning" (click)="createTeam()">
     Create Team
   </button>
-    <a href="/teams-list"><button type="submit" class="btn btn-outline-primary m-3" data-mdb-ripple-color="dark">Teams
-            page</button></a>
+  <a href="/teams-list"><button type="submit" class="btn btn-outline-primary m-3" data-mdb-ripple-color="dark">Teams
+      page</button></a>
 </div>
 
 <div class="container mt-5">
@@ -12,7 +12,7 @@
     <div class="col-md-0"></div>
     <div class="col-md-12">
       <h3 class="mb-8">Teams table</h3>
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -27,8 +27,8 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody *ngFor="let teamData of teamTableData">
-          <tr>
+        <tbody>
+          <tr *ngFor="let teamData of teamTableData">
             <th scope="row">{{ teamData.id }}</th>
             <td>{{ teamData.name }}</td>
             <td>{{ teamData.category }}</td>
@@ -38,18 +38,12 @@
             <td>{{ teamData.draws}}</td>
 
             <td>
-              <button
-                class="btn btn-danger"
-                (click)="deleteTeamData(teamData.id)"
-              >
+              <button class="btn btn-danger" (click)="deleteTeamData(teamData.id)">
                 X
               </button>
             </td>
             <td>
-              <button
-                class="btn btn-primary"
-                (click)="editTeam(teamData.id)"
-              >
+              <button class="btn btn-primary" (click)="editTeam(teamData.id)">
                 Edit
               </button>
             </td>
