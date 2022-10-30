@@ -70,7 +70,7 @@ export class AdminMatchesFormComponent implements OnInit {
     ) {
       return { possessionInvalid: true };
     }
-    return ;
+    return;
   }
   getTeamData() {
     this.teamsService.getTeams().subscribe((results) => {
@@ -90,7 +90,8 @@ export class AdminMatchesFormComponent implements OnInit {
       .subscribe(() => this.editMatches());
   }
 
-  submitMatchData() {debugger
+  submitMatchData() {
+    debugger;
     this.formGroup.markAllAsTouched();
     if (this.formGroup.valid) {
       if (this.id == 0) {
@@ -106,7 +107,6 @@ export class AdminMatchesFormComponent implements OnInit {
         });
       }
     }
-    
   }
 
   deleteMatchData(id: number) {
