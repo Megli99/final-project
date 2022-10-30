@@ -11,7 +11,7 @@ import { MatchesService } from '../matches.service';
 export class MatchesComponent implements OnInit {
   matches: Matches[] = [];
   teams: Teams[] = []
-  constructor(private matchesService: MatchesService, private teamsService: TeamsService) { }
+  constructor(private matchesService: MatchesService, private teamsService:TeamsService) { }
 
   ngOnInit(): void {
     this.loadMatches();

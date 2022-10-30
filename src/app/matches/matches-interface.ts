@@ -5,5 +5,6 @@ export interface Matches {
     goalsHome: number,
     goalsAway: number,
     possessionHome: number,
-    possessionAway: number
+    possessionAway: number,
+    matchTime: string
 }
